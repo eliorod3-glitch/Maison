@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHERIA — Minimalist Architectural Sanctuary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0A0A',
+                        surface: '#141414',
+                        stoneLight: '#E5E5E3',
+                        muted: '#8C8C88',
+                        accent: '#D4AF37'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0A0A0A;
+            color: #E5E5E3;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-obsidian text-stoneLight antialiased selection:bg-accent selection:text-obsidian" x-data="{ menuOpen: false }">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/70 backdrop-blur-xl border-b border-white/10 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="font-serif text-xl tracking-[0.3em] uppercase font-semibold text-white">Aetheria</a>
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-[0.25em] text-muted">
+                <a href="#vision" class="hover:text-white transition-colors">Vision</a>
+                <a href="#works" class="hover:text-white transition-colors">Projets</a>
+                <a href="#atelier" class="hover:text-white transition-colors">Atelier</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block border border-white/20 hover:border-accent hover:text-accent text-white px-7 py-3 text-[10px] uppercase tracking-[0.3em] transition-all duration-300">
+                Initier un dialogue
+            </a>
+            <button @click="menuOpen = !menuOpen" class="md:hidden text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <div x-cloak x-show="menuOpen" @click.outside="menuOpen = false" x-transition class="md:hidden absolute top-full left-0 w-full bg-surface border-b border-white/10 px-6 py-8 space-y-6">
+            <a href="#vision" @click="menuOpen = false" class="block text-2xl font-serif">Vision</a>
+            <a href="#works" @click="menuOpen = false" class="block text-2xl font-serif">Projets</a>
+            <a href="#atelier" @click="menuOpen = false" class="block text-2xl font-serif">Atelier</a>
+            <a href="#contact" @click="menuOpen = false" class="block text-xs uppercase tracking-widest text-accent pt-2">Contact →</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden px-6">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" alt="Architecture" class="w-full h-full object-cover opacity-30 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+            <span class="inline-block text-[10px] uppercase tracking-[0.4em] text-accent font-semibold">Studio d'Architecture & Design Brutaliste</span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[1.05]">
+                Sculpter le vide, <br><span class="italic font-light text-muted">dompter la matière.</span>
+            </h1>
+            <p class="text-muted text-base md:text-lg font-light max-w-2xl mx-auto tracking-wide leading-relaxed">
+                Nous concevons des sanctuaires architecturaux hors du temps, où la lumière brute fusionne avec l'épure des lignes géométriques.
+            </p>
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#works" class="w-full sm:w-auto bg-white text-obsidian hover:bg-accent font-semibold px-9 py-4 uppercase text-[10px] tracking-[0.3em] transition-all duration-300">
+                    Découvrir les œuvres
+                </a>
+                <a href="#contact" class="w-full sm:w-auto border border-white/20 hover:border-white text-white px-9 py-4 uppercase text-[10px] tracking-[0.3em] transition-all duration-300">
+                    Prendre rendez-vous
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Grid -->
+    <section id="works" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+            <div>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-accent font-semibold">Portfolio Sélectionné</span>
+                <h2 class="font-serif text-4xl md:text-6xl mt-3">Œuvres Architecturales</h2>
+            </div>
+            <p class="text-muted text-sm font-light max-w-xs mt-4 md:mt-0">Une exploration radicale de l'espace, du béton ciré et de la lumière naturelle.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="group cursor-pointer space-y-4">
+                <div class="overflow-hidden aspect-[16/10] bg-surface relative">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop" alt="Villa Monolith" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-obsidian/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="flex justify-between items-baseline pt-2">
+                    <h3 class="font-serif text-2xl group-hover:text-accent transition-colors">Villa Monolith</h3>
+                    <span class="text-xs uppercase tracking-widest text-muted">Kyoto • 2025</span>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer space-y-4 md:mt-16">
+                <div class="overflow-hidden aspect-[16/10] bg-surface relative">
+                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1200&auto=format&fit=crop" alt="The Obsidian Pavilion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-obsidian/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="flex justify-between items-baseline pt-2">
+                    <h3 class="font-serif text-2xl group-hover:text-accent transition-colors">The Obsidian Pavilion</h3>
+                    <span class="text-xs uppercase tracking-widest text-muted">Reykjavik • 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Vision Section -->
+    <section id="vision" class="py-32 bg-surface border-y border-white/10 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <span class="text-[10px] uppercase tracking-[0.4em] text-accent font-semibold">Manifeste</span>
+                <h2 class="font-serif text-4xl md:text-5xl leading-tight">Le design comme recherche de l'essentiel.</h2>
+                <p class="text-muted font-light leading-relaxed">
+                    Nous rejetons le superflu. Chaque trait de structure est pensé comme une nécessité poétique. Nos réalisations dialoguent avec leur environnement naturel en créant un silence visuel absolu.
+                </p>
+                <div class="grid grid-cols-2 gap-8 pt-6 border-t border-white/10">
+                    <div>
+                        <span class="block font-serif text-4xl text-accent mb-1">14</span>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-muted">Prix Internationaux</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-4xl text-accent mb-1">08</span>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-muted">Pays d'Intervention</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative aspect-[4/5] overflow-hidden bg-obsidian">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1000&auto=format&fit=crop" alt="Architecture Detail" class="w-full h-full object-cover filter grayscale contrast-125">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Formspree Section -->
+    <section id="contact" class="py-32 px-6 max-w-4xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-16 space-y-4">
+            <span class="text-[10px] uppercase tracking-[0.4em] text-accent font-semibold">Collaboration</span>
+            <h2 class="font-serif text-4xl md:text-5xl">Initier un Projet</h2>
+            <p class="text-muted text-sm font-light">Laissez votre vision s'incarner à travers notre expertise architecturale.</p>
+        </div>
+
+        <form action="https://formspree.io/f/votre-identifiant" method="POST" class="space-y-6 bg-surface p-8 md:p-14 border border-white/10 shadow-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-[0.25em] text-muted mb-2">Nom / Entité</label>
+                    <input type="text" name="name" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-accent transition-colors">
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-[0.25em] text-muted mb-2">Adresse E-mail</label>
+                    <input type="email" name="email" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-accent transition-colors">
+                </div>
+            </div>
+            <div>
+                <label class="block text-[10px] uppercase tracking-[0.25em] text-muted mb-2">Nature du projet</label>
+                <textarea name="message" rows="5" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-accent transition-colors"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-white text-obsidian hover:bg-accent font-semibold py-5 uppercase text-[10px] tracking-[0.3em] transition-all duration-300">
+                Soumettre le dossier
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface text-muted py-16 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs tracking-widest uppercase">
+            <span class="font-serif text-lg tracking-[0.2em] text-white mb-4 md:mb-0">Aetheria Studio</span>
+            <p>&copy; 2026 Aetheria. Tous droits réservés.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">Mentions Légales</a>
+                <a href="#" class="hover:text-white transition-colors">Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
